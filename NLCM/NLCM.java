@@ -1,24 +1,24 @@
 class NLCM {
-	public long nlcm(int[] num) {
-		long answer = 0;
-    if ( num.length < 2 ) return 0;
-    
-    answer = num[0] * num[1] / gcm(num[0],num[1]);
-		for (int i = 2 ; i < num.length; i ++) {
-			 answer = answer*num[i]/gcm(answer,num[i]);
-    }
-		return answer;
-	}
-  
-  public long gcm(long a, long b) {
-  	if (b == 0) return a;
-    return gcm(b,a%b);
-  }
+    public long nlcm(int[] num) {
+        long answer = 0;
+        if (num.length < 2) return 0;
 
-	public static void main(String[] args) {
-		NLCM c = new NLCM();
-		int[] ex = { 2, 6, 8, 14 }; //¿À¸§ Â÷¼ø sorting ÇÊ¿ä
-		// ¾Æ·¡´Â Å×½ºÆ®·Î Ãâ·ÂÇØ º¸±â À§ÇÑ ÄÚµåÀÔ´Ï´Ù.
-		System.out.println(c.nlcm(ex));
-	}
+        answer = num[0] * num[1] / gcm(num[0], num[1]);
+        for (int i = 2; i < num.length; i++) {
+            answer = answer * num[i] / gcm(answer, num[i]);
+        }
+        return answer;
+    }
+
+    public long gcm(long a, long b) {
+        if (b == 0) return a;
+        return gcm(b, a % b);
+    }
+
+    public static void main(String[] args) {
+        NLCM c = new NLCM();
+        int[] ex = {2, 6, 8, 14}; //ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ sorting ï¿½Ê¿ï¿½
+        // ï¿½Æ·ï¿½ï¿½ï¿½ ï¿½×½ï¿½Æ®ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Úµï¿½ï¿½Ô´Ï´ï¿½.
+        System.out.println(c.nlcm(ex));
+    }
 }
